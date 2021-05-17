@@ -6,8 +6,15 @@ import RNBootSplash from "react-native-bootsplash";
 export default function App() {
 
   useEffect(() => {
-    RNBootSplash.hide();
-  },[])
+    const init = async () => {
+      // …do multiple sync or async tasks
+    };
+
+    init().finally(async () => {
+      await RNBootSplash.hide({ fade: true });
+      console.log("Bootsplash has been hidden successfully");
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
